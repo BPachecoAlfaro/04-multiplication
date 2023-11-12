@@ -1,22 +1,16 @@
-import fs from 'fs'
 
-let outputMessage = '';
-const tableOf = 5;
-const headerMessage = `
-================================
-    Tabla del ${ tableOf }
-================================\n
-`
+import { yarg } from './config/plugins/args.plugin'
+import { Serverapp } from './presentation/server-app';
 
-for (let index = 1; index <= 10; index++) {
-    outputMessage += (`${ tableOf } x ${ index } = ${ tableOf * index }\n`);
+
+( async () => {
+    await main();
+})();
+
+async function main() {
+    
+    const { b: base, l:limit, s:showTable} = yarg;
+
+    Serverapp.run({ base, limit, showTable });
+
 }
-
-outputMessage = headerMessage + outputMessage
-console.log( outputMessage )
-
-const outputPath = 'outputs'
-
-fs.mkdirSync( outputPath, { recursive: true})
-fs.writeFileSync(`${ outputPath}/tabla-${ tableOf }.txt`, outputMessage)
-console.log('File was created');
