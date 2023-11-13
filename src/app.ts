@@ -9,8 +9,8 @@ import { Serverapp } from './presentation/server-app';
 
 async function main() {
     
-    const { b: base, l:limit, s:showTable} = yarg;
+    const { b:base, l:limit, s:showTable, n:name, d:destination } = yarg;
 
-    Serverapp.run({ base, limit, showTable });
+    Serverapp.run({ base, limit, showTable, name, destination });
 
 }
