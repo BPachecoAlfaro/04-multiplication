@@ -30,7 +30,7 @@ export class SaveFile implements SaveFileUseCase {
 
         } catch (error) {
             
-            console.log( error );
+            // console.log( error ); // winston
             return false;
 
         }
